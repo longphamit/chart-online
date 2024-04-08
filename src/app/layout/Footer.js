@@ -30,7 +30,7 @@ const Footer = () => {
             bg="gray.800"
             marginInline="auto"
             p={8}
-            height={'100%'}
+            height={14}
             spacing={{ base: 8, md: 0 }}
             justifyContent="space-between"
             alignItems="center"

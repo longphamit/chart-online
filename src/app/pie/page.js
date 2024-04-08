@@ -1,4 +1,5 @@
-import LineChartCSRCpn from "@/app/components/LineChartCSRCpn";
+import PieChartCSRCpn from "@/app/components/PieChartCSRCpn";
+
 
 export const metadata = {
     title: "Free Online Line Chart Maker | Create Stunning Charts in Minutes",
@@ -6,9 +7,9 @@ export const metadata = {
     keywords:["Chart", "Biểu đồ", "Chart maker", "Chart online", "Line chart"],
     robots:"index,follow"
 };
-export default function LinePage() {
+export default function PiePage() {
 
     return (
-        <LineChartCSRCpn/>
+        <PieChartCSRCpn/>
     );
 }
