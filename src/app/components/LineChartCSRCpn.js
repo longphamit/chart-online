@@ -50,7 +50,7 @@ const LineChartCSRCpn = () => {
                               style={{background: "#ffff"}}
                               options={chartState.options}
                               data={chartState}
-                              plugins={chartPlugins}
+                              plugins={[chartPlugins]}
 
                         />
                     </Center>

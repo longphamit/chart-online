@@ -1,9 +1,9 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {da} from "@faker-js/faker";
+
 
 export const COLOR_BACKGROUND = 'rgba(255, 99, 132)';
 export const COLOR_BORDER = '#ffff'
-export const chartPlugins = [
+export const chartPlugins =
     {
         beforeDraw: (chart, args, options) => {
             const {ctx} = chart;
@@ -14,7 +14,7 @@ export const chartPlugins = [
             ctx.restore();
         }
     }
-]
+
 export const chartDefaultData = [{x: "Monday", y: 1, color: "red"}, {x: "Tuesday", y: 5, color: "green"}, {
     x: "Wednesday",
     y: 3,
@@ -42,6 +42,7 @@ const initialState = {
                 display: true,
                 text: "Name of chart",
             },
+            chartPlugins,
             datalabels: {
                 backgroundColor: function (context) {
                     return context.dataset.backgroundColor;
