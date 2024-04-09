@@ -1,7 +1,7 @@
 'use client'
 import {Button, Center} from "@chakra-ui/react";
 import {DownloadIcon} from "@chakra-ui/icons";
-
+import { saveAs } from 'file-saver';
 const DowLoadChart = () => {
     const saveCanvas = () => {
         const canvasSave = document.getElementById('chart');

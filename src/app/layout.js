@@ -4,6 +4,7 @@ import {Box, ChakraProvider, Container} from "@chakra-ui/react";
 import {NextSeo} from "next-seo";
 import Footer from "./layout/Footer";
 import Navbar from "./layout/Header";
+import {Provider} from "react-redux";
 
 
 const inter = Inter({subsets: ["latin"]});

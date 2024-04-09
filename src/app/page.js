@@ -1,4 +1,6 @@
 import LineChartCSRCpn from "@/app/components/LineChartCSRCpn";
+import {Provider} from "react-redux";
+import ChartGeneration from "@/app/components/ChartGeneration";
 
 export const metadata = {
     title: "Free Online Chart Maker | Create Stunning Charts in Minutes",
@@ -10,8 +12,9 @@ export default function Home() {
     async function onSubmit(event) {
     }
 
-    return (<>
-            <LineChartCSRCpn/>
+    return (
+        <>
+            <ChartGeneration type="LINE"/>
         </>
 
     );

@@ -7,24 +7,27 @@ import {
     PopoverHeader,
     PopoverTrigger, SimpleGrid
 } from "@chakra-ui/react";
-import {useState} from "react";
+import {useEffect, useState} from "react";
+import randomColor from 'randomcolor';
+import {useDispatch, useSelector} from "react-redux";
+import {formCreateChartAction} from "@/lib/formCreateChartSlice";
+import { v4 as uuidv4 } from 'uuid';
 
-const PickColorCustom = () => {
-    const [color, setColor] = useState("gray.500");
 
-    const colors = [
-        "gray.500",
-        "red.500",
-        "gray.700",
-        "green.500",
-        "blue.500",
-        "blue.800",
-        "yellow.500",
-        "orange.500",
-        "purple.500",
-        "pink.500"
-    ];
+const PickColorCustom = ({index,colorInit}) => {
+    const randomColorTool = randomColor;
+    const dispatch = useDispatch()
+    const formCreateChartState = useSelector(state => state.formCreateChart)
 
+    const [color, setColor] = useState(colorInit);
+    const [colors, setColors] = useState();
+    const handlePickColor = (value) => {
+        setColor(value)
+        dispatch(formCreateChartAction.handleValue({index: index, value: value, type: 'color'}))
+    }
+    useEffect(()=>{
+        setColors(randomColorTool({count: 50}))
+    },[])
     return (
         <Popover variant="picker">
             <PopoverTrigger>
@@ -39,8 +42,8 @@ const PickColorCustom = () => {
                 ></Button>
             </PopoverTrigger>
             <PopoverContent width="170px">
-                <PopoverArrow bg={color} />
-                <PopoverCloseButton color="white" />
+                <PopoverArrow bg={color}/>
+                <PopoverCloseButton color="white"/>
                 <PopoverHeader
                     height="100px"
                     backgroundColor={color}
@@ -50,11 +53,11 @@ const PickColorCustom = () => {
                 >
                     <Center height="100%">{color}</Center>
                 </PopoverHeader>
-                <PopoverBody height="120px">
+                <PopoverBody height="100%">
                     <SimpleGrid columns={5} spacing={2}>
                         {colors?.map((c) => (
                             <Button
-                                key={c}
+                                key={uuidv4()}
                                 aria-label={c}
                                 background={c}
                                 height="22px"
@@ -62,11 +65,12 @@ const PickColorCustom = () => {
                                 padding={0}
                                 minWidth="unset"
                                 borderRadius={3}
-                                _hover={{ background: c }}
+                                _hover={{background: c}}
                                 onClick={() => {
-                                    setColor(c);
+                                    handlePickColor(c);
                                 }}
-                            ></Button>
+                            >
+                            </Button>
                         ))}
                     </SimpleGrid>
                     <Input
@@ -76,7 +80,7 @@ const PickColorCustom = () => {
                         size="sm"
                         value={color}
                         onChange={(e) => {
-                            setColor(e.target.value);
+                            handlePickColor(e.target.value);
                         }}
                     />
                 </PopoverBody>

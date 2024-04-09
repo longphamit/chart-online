@@ -1,4 +1,5 @@
 import LineChartCSRCpn from "@/app/components/LineChartCSRCpn";
+import ChartGeneration from "@/app/components/ChartGeneration";
 
 export const metadata = {
     title: "Free Online Line Chart Maker | Create Stunning Charts in Minutes",
@@ -9,6 +10,6 @@ export const metadata = {
 export default function LinePage() {
 
     return (
-        <LineChartCSRCpn/>
+        <ChartGeneration type={"LINE"}/>
     );
 }

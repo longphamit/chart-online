@@ -1,82 +1,85 @@
 'use client'
-import {Button, Container, Flex, IconButton, Input, InputGroup, InputLeftElement, Stack, Text} from "@chakra-ui/react";
+import {
+    Button,
+    Container,
+    Flex,
+    IconButton,
+    Input,
+    InputGroup,
+    InputLeftElement,
+    Select,
+    Stack,
+    Text
+} from "@chakra-ui/react";
 import PickColorCustom from "@/app/components/PickColorCustom";
 import {AddIcon, CheckIcon, MinusIcon} from "@chakra-ui/icons";
 import {useEffect, useRef} from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {formCreateChartAction} from "@/lib/formCreateChartSlice";
+import {chartAction, COLOR_BACKGROUND, COLOR_BORDER} from "@/lib/chartSlice";
 
-const FormCreateChart = ({nameOfChart,nameOfValue}) => {
+const FormCreateChart = ({showPickColor, showBorder, baseBorderColor, showOneColor}) => {
+    const dispatch = useDispatch()
+    const formCreateChartState = useSelector(state => state.formCreateChart)
+
     const listRef = useRef(null);
+
+    const handleNameOfChart = (value) => {
+        dispatch(formCreateChartAction.setNameOfChart({value: value.currentTarget.value}))
+    }
+    const handleNameOfValue = (value) => {
+        dispatch(formCreateChartAction.setNameOfValue({value: value.currentTarget.value}))
+    }
+
+    const addValue = () => {
+        dispatch(formCreateChartAction.addValue())
+    }
+    const removeValue = (index) => {
+        dispatch(formCreateChartAction.removeValue({index: index}))
+    }
+    const handleX = (index, value) => {
+        dispatch(formCreateChartAction.handleValue({index: index, value: value.currentTarget.value, type: 'x'}))
+
+    }
+    const handleY = (index, value) => {
+        dispatch(formCreateChartAction.handleValue({index: index, value: value.currentTarget.value, type: 'y'}))
+
+    }
+    const createChart = () => {
+        let labels = formCreateChartState.data.map(e => e.x);
+        let chartData = formCreateChartState.data.map(e => e.y);
+        let colors = formCreateChartState.data.map(e => e.color);
+        console.log({
+            labels: labels,
+            datasets: [{
+                label: formCreateChartState.nameOfValue,
+                data: chartData,
+                borderColor: showBorder ? COLOR_BORDER : colors,
+                backgroundColor: showOneColor ? COLOR_BACKGROUND : colors,
+            }]
+        });
+        dispatch(chartAction.createChart({
+            labels: labels,
+            datasets: [{
+                label: formCreateChartState.nameOfValue,
+                data: chartData,
+                borderColor: showBorder ? COLOR_BORDER : baseBorderColor ? COLOR_BACKGROUND : colors,
+                backgroundColor: showOneColor ? COLOR_BACKGROUND : colors,
+            }],
+            nameOfChart: formCreateChartState.nameOfChart
+        }))
+    }
     useEffect(() => {
         // Check for listRef availability to prevent errors
         if (listRef.current) {
             const listElement = listRef.current;
             listElement.scrollTop = listElement.scrollHeight; // Scroll smoothly
         }
-    }, [data]);
-    const handleNameOfChart = (value) => {
-        setNameOfChart(value.currentTarget.value)
-    }
-    const handleNameOfValue = (value) => {
-        setNameOfValue(value.currentTarget.value)
-    }
-
-    const addValue = () => {
-        setData([...data, {x: "", y: ""}]);
-    }
-    const removeValue = (index) => {
-        let array = [...data];
-        array.splice(index, 1)
-        setData(array);
-    }
-    const handleX = (index, value) => {
-        if (index >= 0 && index < data.length) {
-            setData([
-                ...data.slice(0, index),
-                {...data[index], x: value.currentTarget.value},
-                ...data.slice(index + 1),
-            ]);
-        }
-    }
-    const handleY = (index, value) => {
-        console.log(value.currentTarget.value)
-        if (index >= 0 && index < data.length) {
-            setData([
-                ...data.slice(0, index),
-                {...data[index], y: value.currentTarget.value},
-                ...data.slice(index + 1),
-            ]);
-        }
-    }
-
-    const createChart = () => {
-        setOptions({ // Update options state with new title
-            ...options,
-            plugins: {
-                ...options.plugins,
-                title: {
-                    ...options.plugins.title,
-                    text: nameOfChart,
-                },
-            },
-        });
-        let labels = data.map(e => e.x);
-        let chartData = data.map(e => e.y);
-        setChart({
-            labels: labels,
-            datasets: [{
-                label: nameOfValue,
-                data: chartData,
-                borderColor: 'rgb(255, 99, 132)',
-                backgroundColor: 'rgba(255, 99, 132, 0.5)',
-            }],
-        })
-    }
-
+    }, [formCreateChartState.data]);
     return (
         <Container style={{marginTop: 10}}>
             <Stack spacing={4}>
                 <InputGroup>
-
                     <Input onChange={value => handleNameOfChart(value)}
                            placeholder="Name of chart"/>
                 </InputGroup>
@@ -88,7 +91,7 @@ const FormCreateChart = ({nameOfChart,nameOfValue}) => {
                 <div ref={listRef}
                      style={{maxHeight: 300, overflowY: "scroll", flexDirection: "column-reverse"}}>
                     {
-                        data?.map((e, index) => {
+                        formCreateChartState.data?.map((e, index) => {
                             return (
                                 <Flex key={index}>
                                     <div style={{padding: 5}}>
@@ -115,9 +118,12 @@ const FormCreateChart = ({nameOfChart,nameOfValue}) => {
                                             />
                                         </InputGroup>
                                     </div>
-                                    <div style={{padding: 10}}>
-                                        <PickColorCustom/>
-                                    </div>
+                                    {
+                                        showPickColor ? <div style={{padding: 10}}>
+                                            <PickColorCustom index={index} colorInit={e.color}/>
+                                        </div> : <></>
+                                    }
+
                                     <div style={{padding: 5}}>
                                         <IconButton
 

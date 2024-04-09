@@ -1,4 +1,5 @@
 import PieChartCSRCpn from "@/app/components/PieChartCSRCpn";
+import ChartGeneration from "@/app/components/ChartGeneration";
 
 
 export const metadata = {
@@ -10,6 +11,6 @@ export const metadata = {
 export default function PiePage() {
 
     return (
-        <PieChartCSRCpn/>
+        <ChartGeneration type={"PIE"}/>
     );
 }
