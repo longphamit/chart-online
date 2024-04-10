@@ -11,4 +11,10 @@
         <changefreq>yearly</changefreq>
         <priority>1</priority>
     </url>
+    <url>
+        <loc>https://tomchart.com/pie</loc>
+        <lastmod>2024-04-10T15:02:24.021Z</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>1</priority>
+    </url>
 </urlset>
