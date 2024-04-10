@@ -1,8 +1,8 @@
 'use client'
 import {Provider} from "react-redux";
-import LineChartCSRCpn from "@/app/components/LineChartCSRCpn";
-import {store} from "@/lib/store";
-import PieChartCSRCpn from "@/app/components/PieChartCSRCpn";
+import LineChartCSRCpn from "./LineChartCSRCpn";
+import {store} from "../../../lib/store";
+import PieChartCSRCpn from "./PieChartCSRCpn";
 
 const ChartGeneration = ({type}) => {
     return (

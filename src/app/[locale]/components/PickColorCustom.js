@@ -10,7 +10,7 @@ import {
 import {useEffect, useState} from "react";
 import randomColor from 'randomcolor';
 import {useDispatch, useSelector} from "react-redux";
-import {formCreateChartAction} from "@/lib/formCreateChartSlice";
+import {formCreateChartAction} from "../../../lib/formCreateChartSlice";
 import { v4 as uuidv4 } from 'uuid';
 
 

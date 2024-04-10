@@ -11,14 +11,15 @@ import {
     Stack,
     Text
 } from "@chakra-ui/react";
-import PickColorCustom from "@/app/components/PickColorCustom";
+import PickColorCustom from "./PickColorCustom";
 import {AddIcon, CheckIcon, MinusIcon} from "@chakra-ui/icons";
 import {useEffect, useRef} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {formCreateChartAction} from "@/lib/formCreateChartSlice";
-import {chartAction, COLOR_BACKGROUND, COLOR_BORDER} from "@/lib/chartSlice";
-
+import {formCreateChartAction} from "../../../lib/formCreateChartSlice";
+import {chartAction, COLOR_BACKGROUND, COLOR_BORDER} from "../../../lib/chartSlice";
+import {useTranslations} from 'next-intl';
 const FormCreateChart = ({showPickColor, showBorder, baseBorderColor, showOneColor}) => {
+    const t = useTranslations("Chart");
     const dispatch = useDispatch()
     const formCreateChartState = useSelector(state => state.formCreateChart)
 
@@ -69,6 +70,7 @@ const FormCreateChart = ({showPickColor, showBorder, baseBorderColor, showOneCol
             nameOfChart: formCreateChartState.nameOfChart
         }))
     }
+
     useEffect(() => {
         // Check for listRef availability to prevent errors
         if (listRef.current) {
@@ -81,12 +83,12 @@ const FormCreateChart = ({showPickColor, showBorder, baseBorderColor, showOneCol
             <Stack spacing={4}>
                 <InputGroup>
                     <Input onChange={value => handleNameOfChart(value)}
-                           placeholder="Name of chart"/>
+                           placeholder={t('nameOfChart')}/>
                 </InputGroup>
                 <InputGroup>
 
                     <Input onChange={value => handleNameOfValue(value)}
-                           placeholder="Name of value"/>
+                           placeholder={t('nameOfValue')}/>
                 </InputGroup>
                 <div ref={listRef}
                      style={{maxHeight: 300, overflowY: "scroll", flexDirection: "column-reverse"}}>
@@ -94,13 +96,13 @@ const FormCreateChart = ({showPickColor, showBorder, baseBorderColor, showOneCol
                         formCreateChartState.data?.map((e, index) => {
                             return (
                                 <Flex key={index}>
-                                    <div style={{padding: 5}}>
+                                    <div style={{paddingTop: 15,paddingRight:5,fontSize:12}}>
                                         <Text>{index + 1}</Text>
                                     </div>
                                     <div style={{padding: 5}}>
                                         <InputGroup>
                                             <InputLeftElement pointerEvents='none'>
-                                                <Text fontSize={10} fontWeight={'bold'}>Label</Text>
+                                                <Text fontSize={10} fontWeight={'bold'}>{t('label')}</Text>
                                             </InputLeftElement>
                                             <Input onChange={value => handleX(index, value)}
                                                    placeholder={e.x}/>
@@ -109,7 +111,7 @@ const FormCreateChart = ({showPickColor, showBorder, baseBorderColor, showOneCol
                                     <div style={{padding: 5}}>
                                         <InputGroup>
                                             <InputLeftElement pointerEvents='none'>
-                                                <Text fontSize={10} fontWeight={'bold'}>Value</Text>
+                                                <Text fontSize={10} fontWeight={'bold'}>{t('value')}</Text>
                                             </InputLeftElement>
                                             <Input
                                                 placeholder={e.y}
@@ -145,11 +147,11 @@ const FormCreateChart = ({showPickColor, showBorder, baseBorderColor, showOneCol
                             leftIcon={<AddIcon/>}
                             colorScheme='teal'
                             variant='outline'
-                            onClick={addValue}>Add values</Button>
+                            onClick={addValue}>{t('addValue')}</Button>
                     <Button w='50%' margin={1}
                             colorScheme='teal'
                             leftIcon={<CheckIcon/>}
-                            onClick={createChart}>Create chart</Button>
+                            onClick={createChart}>{t('createChart')}</Button>
                 </Flex>
             </Stack>
         </Container>

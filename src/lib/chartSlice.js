@@ -86,6 +86,22 @@ export const chartSlice = createSlice({
         },
         setBorderColor: (state, action) => {
             state.datasets.forEach(e => e.borderColor = COLOR_BORDER)
+        },
+        setNameOfChart:(state,action)=>{
+            state.options = { // Update options state with new title
+                ...state.options,
+                plugins: {
+                    ...state.options.plugins,
+                    title: {
+                        ...state.options.plugins.title,
+                        text: action.payload.value,
+                    },
+                }
+
+            }
+        },
+        setNameOfValue:(state,action)=>{
+            state.datasets.forEach(e => e.label = action.payload.value)
         }
     }
 });

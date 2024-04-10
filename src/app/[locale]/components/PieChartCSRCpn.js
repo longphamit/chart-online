@@ -16,12 +16,13 @@ import {
     Legend,
     ArcElement
 } from 'chart.js';
-import DowLoadChart from "@/app/components/DowLoadChart";
-import {chartAction, chartPlugins} from "@/lib/chartSlice";
+import DowLoadChart from "./DowLoadChart";
+import {chartAction, chartPlugins} from "../../../lib/chartSlice";
 import {useDispatch, useSelector} from "react-redux";
-import FormCreateChart from "@/app/components/FormCreateChart";
+import FormCreateChart from "./FormCreateChart";
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import {useEffect} from "react";
+import {useTranslations} from "next-intl";
 
 const PieChartCSRCpn = () => {
     ChartJS.register(
@@ -34,11 +35,13 @@ const PieChartCSRCpn = () => {
         Legend,
         ArcElement
     );
+    const t = useTranslations("Chart");
     const dispatch = useDispatch();
     const chartState = useSelector(state => state.chart)
     useEffect(() => {
         dispatch(chartAction.setBorderColor())
-
+        dispatch(chartAction.setNameOfChart({value: t.raw("nameOfChart")}))
+        dispatch(chartAction.setNameOfValue({value: t.raw("nameOfValue")}))
     }, []);
 
     return (

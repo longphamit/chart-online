@@ -2,7 +2,9 @@
 import {Button, Center} from "@chakra-ui/react";
 import {DownloadIcon} from "@chakra-ui/icons";
 import { saveAs } from 'file-saver';
+import {useTranslations} from "next-intl";
 const DowLoadChart = () => {
+    const t = useTranslations("Chart");
     const saveCanvas = () => {
         const canvasSave = document.getElementById('chart');
         canvasSave.toBlob(function (blob) {
@@ -11,7 +13,7 @@ const DowLoadChart = () => {
     }
     return (
         <Center>
-            <Button leftIcon={<DownloadIcon/>} onClick={() => saveCanvas()}>Dowload</Button>
+            <Button leftIcon={<DownloadIcon/>} onClick={() => saveCanvas()}>{t('dowload')}</Button>
         </Center>
     )
 }

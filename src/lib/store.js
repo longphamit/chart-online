@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit'
-import chart from "@/lib/chartSlice";
-import formCreateChart from "@/lib/formCreateChartSlice";
+import chart from "./chartSlice";
+import formCreateChart from "./formCreateChartSlice";
 
 const rootReducer = {
     chart,

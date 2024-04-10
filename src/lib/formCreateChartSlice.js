@@ -1,5 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {chartDefaultData, chartSlice} from "@/lib/chartSlice";
+import {chartDefaultData, chartSlice} from "./chartSlice";
 
 const initialState = {
     nameOfChart: "",

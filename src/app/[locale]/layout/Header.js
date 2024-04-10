@@ -20,8 +20,11 @@ import {
 import {MoonIcon, SunIcon} from '@chakra-ui/icons'
 import NextLink from 'next/link'
 import {useRouter} from "next/navigation";
+import {useTranslations} from "next-intl";
 
-export default function Nav({h}) {
+export default function Nav({h,locale}) {
+    const tHeader = useTranslations("Header");
+    const tChart = useTranslations("Chart");
     const router = useRouter()
     const {colorMode, toggleColorMode} = useColorMode()
     const {isOpen, onOpen, onClose} = useDisclosure()
@@ -29,8 +32,8 @@ export default function Nav({h}) {
         <>
             <Box px={4}>
                 <Flex h={h} alignItems={'center'} justifyContent={'space-between'}>
-                    <Box>
-                        <h1>Create Chart Online</h1>
+                    <Box onClick={()=>{router.replace(`/${locale}`)}}>
+                        <h1>{tHeader('name')}</h1>
                     </Box>
 
                     <Flex alignItems={'center'}>
@@ -41,7 +44,7 @@ export default function Nav({h}) {
                             spacing={6}>
 
                             <Button
-                                onClick={()=>{router.replace('/line')}}
+                                onClick={()=>{router.replace(`/${locale}/line`)}}
                                 as={'a'}
                                 display={{base: 'none', md: 'inline-flex'}}
                                 fontSize={'sm'}
@@ -52,11 +55,11 @@ export default function Nav({h}) {
                                 _hover={{
                                     bg: 'pink.300',
                                 }}>
-                                LINE CHART
+                                {tChart('lineChart')}
                             </Button>
 
                             <Button
-                                onClick={()=>{router.replace('/pie')}}
+                                onClick={()=>{router.replace(`/${locale}/pie`)}}
                                 as={'a'}
                                 display={{base: 'none', md: 'inline-flex'}}
                                 fontSize={'sm'}
@@ -67,7 +70,7 @@ export default function Nav({h}) {
                                 _hover={{
                                     bg: 'pink.300',
                                 }}>
-                                PIE CHART
+                                {tChart('pieChart')}
                             </Button>
 
                         </Stack>

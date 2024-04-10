@@ -14,11 +14,12 @@ import {
     Tooltip,
     Legend,
 } from 'chart.js';
-import DowLoadChart from "@/app/components/DowLoadChart";
+import DowLoadChart from "./DowLoadChart";
 import {useDispatch, useSelector} from "react-redux";
-import {chartAction, chartPlugins, COLOR_BORDER} from "@/lib/chartSlice";
-import FormCreateChart from "@/app/components/FormCreateChart";
+import {chartAction, chartPlugins, COLOR_BORDER} from "../../../lib/chartSlice";
+import FormCreateChart from "./FormCreateChart";
 import {useEffect, useState} from "react";
+import {useTranslations} from "next-intl";
 
 
 const LineChartCSRCpn = () => {
@@ -31,10 +32,13 @@ const LineChartCSRCpn = () => {
         Tooltip,
         Legend
     );
+    const t = useTranslations("Chart");
     const dispatch = useDispatch();
     const chartState = useSelector(state => state.chart)
     useEffect(() => {
         dispatch(chartAction.setOneColorBackground())
+        dispatch(chartAction.setNameOfChart({value: t.raw("nameOfChart")}))
+        dispatch(chartAction.setNameOfValue({value: t.raw("nameOfValue")}))
     }, []);
     return (
         <>

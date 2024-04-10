@@ -1,0 +1,20 @@
+{
+  "SEO": {
+    "title": "Tạo biểu đồ online | Vẽ biểu đồ online ",
+    "description": "Tạo biểu đồ online. Vẽ biểu đồ online. Vẽ biểu đồ đường. Vẽ biểu đồ tròn. Công cụ vẽ biểu đồ cho học sinh, sinh viên, giáo viên."
+  },
+  "Chart": {
+    "nameOfChart": "Tên biểu đồ",
+    "nameOfValue": "Tên dữ liệu",
+    "label": "Tên",
+    "value": "Giá trị",
+    "lineChart": "Biểu đồ đường",
+    "pieChart": "Biểu đồ tròn",
+    "createChart": "Tạo biểu đồ",
+    "addValue": "Thêm giá trị",
+    "dowload": "Tải về"
+  },
+  "Header": {
+    "name": "TẠO BIỂU ĐỒ ONLINE"
+  }
+}

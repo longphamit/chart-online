@@ -1,43 +1,48 @@
 import {Inter} from "next/font/google";
-import "./globals.css";
+import "../globals.css";
 import {Box, ChakraProvider, Container} from "@chakra-ui/react";
 import {NextSeo} from "next-seo";
 import Footer from "./layout/Footer";
 import Navbar from "./layout/Header";
-import {Provider} from "react-redux";
-
+import {NextIntlClientProvider, useMessages} from 'next-intl';
+import {getTranslations} from "next-intl/server";
 
 const inter = Inter({subsets: ["latin"]});
 
-export const metadata = {
-    title: "Free Online Chart Maker | Create Stunning Charts in Minutes",
-    description: "This tool help you make chart easier. Create stunning charts & graphs online in minutes!  Our free chart maker is easy to use and offers a variety of chart types to visualize your data. Perfect for presentations, reports, and even educational projects! (Great for students & teachers!). Công cụ vẽ biểu đồ online, vẽ biểu đồ tròn, biểu đồ cột, biểu đồ đường miễn phí tiện lợi. Vẽ biểu đồ online.",
-    keywords: ["Chart", "Biểu đồ", "Chart maker", "Chart online", "Line chart"],
-    robots: "index,follow"
-};
 
-export default function RootLayout({children,params}) {
-    const saveCanvas = () => {
-        //save to png
+export async function generateMetadata({params: {locale}}) {
+    const t = await getTranslations({locale, namespace: 'SEO'});
 
-    }
+    return {
+        title: t('title'),
+        description: t('description'),
+        keywords: ["Chart", "Biểu đồ", "Chart maker", "Chart online", "Line chart"],
+        robots: "index,follow"
+    };
+}
+
+export default function RootLayout({children,params: {locale}}) {
+    const messages = useMessages();
     return (
-        <html lang={params.locale}>
+        <html lang={locale}>
         <head>
             <link rel="canonical" href="https://tomchart.com"/>
         </head>
         <body className={inter.className}>
-        <ChakraProvider>
-            <main>
-                <Navbar h={14}/>
-                <div style={{padding: 30,minHeight:"100vh"}}>
-                    {children}
-                </div>
-                <div style={{bottom: 0, left: 0, width: "100%"}}>
-                    <Footer/>
-                </div>
-            </main>
-        </ChakraProvider>
+        <NextIntlClientProvider locale={locale} messages={messages}>
+            <ChakraProvider>
+                <main>
+                    <Navbar h={14} locale={locale}/>
+                    <div style={{padding: 30,minHeight:"100vh"}}>
+                        {children}
+                    </div>
+                    <div style={{bottom: 0, left: 0, width: "100%"}}>
+                        <Footer/>
+                    </div>
+                </main>
+            </ChakraProvider>
+        </NextIntlClientProvider>
+
         </body>
         </html>
     );
