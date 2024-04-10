@@ -11,7 +11,7 @@ const inter = Inter({subsets: ["latin"]});
 
 export const metadata = {
     title: "Free Online Chart Maker | Create Stunning Charts in Minutes",
-    description: "This tool help you make chart easier. Create stunning charts & graphs online in minutes!  Our free chart maker is easy to use and offers a variety of chart types to visualize your data. Perfect for presentations, reports, and even educational projects! (Great for students & teachers!)",
+    description: "This tool help you make chart easier. Create stunning charts & graphs online in minutes!  Our free chart maker is easy to use and offers a variety of chart types to visualize your data. Perfect for presentations, reports, and even educational projects! (Great for students & teachers!). Công cụ vẽ biểu đồ online, vẽ biểu đồ tròn, biểu đồ cột, biểu đồ đường miễn phí tiện lợi. Vẽ biểu đồ online.",
     keywords: ["Chart", "Biểu đồ", "Chart maker", "Chart online", "Line chart"],
     robots: "index,follow"
 };
