@@ -16,13 +16,13 @@ export const metadata = {
     robots: "index,follow"
 };
 
-export default function RootLayout({children}) {
+export default function RootLayout({children,params}) {
     const saveCanvas = () => {
         //save to png
 
     }
     return (
-        <html lang="en">
+        <html lang={params.locale}>
         <head>
             <link rel="canonical" href="https://tomchart.com"/>
         </head>
