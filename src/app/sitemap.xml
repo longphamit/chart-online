@@ -6,6 +6,18 @@
         <priority>1</priority>
     </url>
     <url>
+        <loc>https://tomchart.com/en</loc>
+        <lastmod>2024-04-06T15:02:24.021Z</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>1</priority>
+    </url>
+    <url>
+        <loc>https://tomchart.com/vi</loc>
+        <lastmod>2024-04-06T15:02:24.021Z</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>1</priority>
+    </url>
+    <url>
         <loc>https://tomchart.com/line</loc>
         <lastmod>2024-04-06T15:02:24.021Z</lastmod>
         <changefreq>yearly</changefreq>
@@ -13,6 +25,31 @@
     </url>
     <url>
         <loc>https://tomchart.com/pie</loc>
+        <lastmod>2024-04-10T15:02:24.021Z</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>1</priority>
+    </url>
+
+    <url>
+        <loc>https://tomchart.com/vi/line</loc>
+        <lastmod>2024-04-06T15:02:24.021Z</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>1</priority>
+    </url>
+    <url>
+        <loc>https://tomchart.com/vi/pie</loc>
+        <lastmod>2024-04-10T15:02:24.021Z</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>1</priority>
+    </url>
+    <url>
+        <loc>https://tomchart.com/en/line</loc>
+        <lastmod>2024-04-06T15:02:24.021Z</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>1</priority>
+    </url>
+    <url>
+        <loc>https://tomchart.com/en/pie</loc>
         <lastmod>2024-04-10T15:02:24.021Z</lastmod>
         <changefreq>yearly</changefreq>
         <priority>1</priority>

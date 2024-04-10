@@ -1,11 +1,11 @@
 import {Inter} from "next/font/google";
 import "../globals.css";
-import {Box, ChakraProvider, Container} from "@chakra-ui/react";
-import {NextSeo} from "next-seo";
+import {ChakraProvider} from "@chakra-ui/react";
 import Footer from "./layout/Footer";
 import Navbar from "./layout/Header";
 import {NextIntlClientProvider, useMessages} from 'next-intl';
 import {getTranslations} from "next-intl/server";
+
 
 const inter = Inter({subsets: ["latin"]});
 
@@ -22,6 +22,7 @@ export async function generateMetadata({params: {locale}}) {
 }
 
 export default function RootLayout({children,params: {locale}}) {
+
     const messages = useMessages();
     return (
         <html lang={locale}>
