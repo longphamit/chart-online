@@ -80,7 +80,7 @@ const FormCreateChart = ({showPickColor, showBorder, baseBorderColor, showOneCol
     }, [formCreateChartState.data]);
     return (
         <Container style={{marginTop: 10}}>
-            <Stack spacing={4}>
+            <Stack >
                 <InputGroup>
                     <Input onChange={value => handleNameOfChart(value)}
                            placeholder={t('nameOfChart')}/>

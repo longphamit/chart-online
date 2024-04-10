@@ -5,6 +5,7 @@ import Footer from "./layout/Footer";
 import Navbar from "./layout/Header";
 import {NextIntlClientProvider, useMessages} from 'next-intl';
 import {getTranslations} from "next-intl/server";
+import Toolbar from "./layout/Toolbar";
 
 
 const inter = Inter({subsets: ["latin"]});
@@ -34,7 +35,8 @@ export default function RootLayout({children,params: {locale}}) {
             <ChakraProvider>
                 <main>
                     <Navbar h={14} locale={locale}/>
-                    <div style={{padding: 30,minHeight:"100vh"}}>
+                    <div style={{minHeight:"100vh"}}>
+                        <Toolbar locale={locale}/>
                         {children}
                     </div>
                     <div style={{bottom: 0, left: 0, width: "100%"}}>

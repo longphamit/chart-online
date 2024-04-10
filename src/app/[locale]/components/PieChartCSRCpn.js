@@ -46,9 +46,8 @@ const PieChartCSRCpn = () => {
 
     return (
         <Grid
-            templateRows='repeat(2, 1fr)'
-            templateColumns='repeat(5, 1fr)'
-            gap={4}
+            templateRows={{lg:'repeat(2, 1fr)'}}
+            templateColumns={{lg:'repeat(5, 1fr)'}}
         >
             <GridItem rowSpan={2} colSpan={3}>
                 <DowLoadChart/>
@@ -62,7 +61,7 @@ const PieChartCSRCpn = () => {
                     />
                 </Center>
             </GridItem>
-            <GridItem rowSpan={2} colSpan={2}>
+            <GridItem rowSpan={{lg:2}} colSpan={{lg:2,base:3}}>
                 <FormCreateChart showPickColor={true} showBorder={true}/>
             </GridItem>
         </Grid>
