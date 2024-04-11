@@ -51,7 +51,7 @@ const PieChartCSRCpn = () => {
         >
             <GridItem rowSpan={2} colSpan={3}>
                 <DowLoadChart/>
-                <Center>
+                <Center style={{minHeight:500}}>
                     <Pie id="chart"
                          style={{background: "#ffff"}}
                          options={chartState.options}

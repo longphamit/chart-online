@@ -49,9 +49,9 @@ const LineChartCSRCpn = () => {
             >
                 <GridItem rowSpan={2} colSpan={3}>
                     <DowLoadChart/>
-                    <Center>
+                    <Center style={{minHeight:300}}>
                         <Line id="chart"
-                              style={{background: "#ffff"}}
+                              style={{background: "#ffff",height:"100%"}}
                               options={chartState.options}
                               data={chartState}
                               plugins={[chartPlugins]}

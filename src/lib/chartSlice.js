@@ -31,6 +31,7 @@ const initialState = {
     }],
     options: {
         responsive: true,
+        maintainAspectRatio: false,
         layout: {
             padding: 30
         },
