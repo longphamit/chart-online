@@ -38,10 +38,14 @@ const initialState = {
         plugins: {
             legend: {
                 position: 'top',
+                labels:{
+                    color: "black"
+                }
             },
             title: {
                 display: true,
                 text: "Name of chart",
+                color: "black"
             },
             chartPlugins,
             datalabels: {

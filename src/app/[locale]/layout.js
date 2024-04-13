@@ -15,8 +15,8 @@ export async function generateMetadata({params: {locale}}) {
     const t = await getTranslations({locale, namespace: 'SEO'});
 
     return {
-        title: t('title'),
-        description: t('description'),
+        title: t('common_title'),
+        description: t('common_description'),
         keywords: ["Chart", "Biểu đồ", "Chart maker", "Chart online", "Line chart"],
         robots: "index,follow"
     };

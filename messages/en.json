@@ -1,7 +1,10 @@
 {
   "SEO": {
-    "title": "Free Online Chart Maker | Create Stunning Charts in Minutes",
-    "description": "This tool help you make chart easier. Create stunning charts & graphs online in minutes!  Our free chart maker is easy to use and offers a variety of chart types to visualize your data. Perfect for presentations, reports, and even educational projects! (Great for students & teachers!). Công cụ vẽ biểu đồ online, vẽ biểu đồ tròn, biểu đồ cột, biểu đồ đường miễn phí tiện lợi. Vẽ biểu đồ online."
+    "common_title": "Create Chart Online | Make Chart Free",
+    "common_description": "This tool help you make chart easier. Create stunning charts & graphs online in minutes!  Our free chart maker is easy to use and offers a variety of chart types to visualize your data. Perfect for presentations, reports, and even educational projects! (Great for students & teachers!). Công cụ vẽ biểu đồ online, vẽ biểu đồ tròn, biểu đồ cột, biểu đồ đường miễn phí tiện lợi. Vẽ biểu đồ online.",
+    "line_title": "Create Line Chart Online",
+    "pie_title": "Create Pie Chart Online"
+
   },
   "Chart": {
     "nameOfChart": "Name of chart",

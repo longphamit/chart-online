@@ -1,7 +1,9 @@
 {
   "SEO": {
-    "title": "Tạo biểu đồ online | Vẽ biểu đồ online ",
-    "description": "Tạo biểu đồ online. Vẽ biểu đồ online. Vẽ biểu đồ đường. Vẽ biểu đồ tròn. Công cụ vẽ biểu đồ cho học sinh, sinh viên, giáo viên."
+    "common_title": "Vẽ biểu đồ online | Tạo biểu đồ online",
+    "common_description": "Vẽ biểu đồ online. Tạo biểu đồ online. Vẽ biểu đồ đường. Vẽ biểu đồ tròn. Công cụ vẽ biểu đồ cho học sinh, sinh viên, giáo viên.",
+    "line_title": "Vẽ biểu đồ đường online",
+    "pie_title": "Vẽ biểu đồ tròn online"
   },
   "Chart": {
     "nameOfChart": "Tên biểu đồ",
