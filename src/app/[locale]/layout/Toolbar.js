@@ -1,5 +1,5 @@
 'use client'
-import {Button, Center, Flex, Spacer, Stack} from "@chakra-ui/react";
+import {Box, Button, Center, Flex, SimpleGrid, Spacer, Stack} from "@chakra-ui/react";
 import {useRouter} from "next/navigation";
 import {useTranslations} from "next-intl";
 
@@ -7,10 +7,10 @@ const Toolbar = ({locale}) => {
     const tChart = useTranslations("Chart");
     const router = useRouter()
     return (
-        <Center>
-            <Stack direction="row" spacing={6}>
+        <Center marginBottom={5}>
+            <SimpleGrid columns={{base:2,md:2,lg:3}} >
                 <Button
-                    margin={5}
+                    margin={2}
                     variant='outline'
                     onClick={() => {
                         router.replace(`/${locale}/line`)
@@ -26,7 +26,7 @@ const Toolbar = ({locale}) => {
                     {tChart('lineChart')}
                 </Button>
                 <Button
-                    margin={5}
+                    margin={2}
                     variant='outline'
                     onClick={() => {
                         router.replace(`/${locale}/bar`)
@@ -43,7 +43,7 @@ const Toolbar = ({locale}) => {
                 </Button>
                 <Button
                     variant='outline'
-                    margin={5}
+                    margin={2}
                     onClick={() => {
                         router.replace(`/${locale}/pie`)
                     }}
@@ -57,8 +57,7 @@ const Toolbar = ({locale}) => {
                     }}>
                     {tChart('pieChart')}
                 </Button>
-
-            </Stack>
+            </SimpleGrid>
         </Center>
     )
 }
