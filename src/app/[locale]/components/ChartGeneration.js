@@ -3,6 +3,7 @@ import {Provider} from "react-redux";
 import LineChartCSRCpn from "./LineChartCSRCpn";
 import {store} from "../../../lib/store";
 import PieChartCSRCpn from "./PieChartCSRCpn";
+import BarChartCSRCpn from "./BarChartCSRCpn";
 
 const ChartGeneration = ({type}) => {
     return (
@@ -10,7 +11,8 @@ const ChartGeneration = ({type}) => {
             {
                 type === 'LINE' ? <LineChartCSRCpn/> :
                     type === 'PIE' ? <PieChartCSRCpn/> :
-                        <></>
+                        type === 'BAR' ? <BarChartCSRCpn/> :
+                            <></>
             }
         </Provider>
     )

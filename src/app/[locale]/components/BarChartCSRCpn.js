@@ -3,7 +3,7 @@ import {
     Center, Grid,
     GridItem
 } from "@chakra-ui/react";
-import {Line} from "react-chartjs-2";
+import {Bar, Line} from "react-chartjs-2";
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -12,7 +12,7 @@ import {
     LineElement,
     Title,
     Tooltip,
-    Legend,
+    Legend, BarElement,
 } from 'chart.js';
 import DowLoadChart from "./DowLoadChart";
 import {useDispatch, useSelector} from "react-redux";
@@ -20,13 +20,15 @@ import {chartAction, chartPlugins, COLOR_BORDER} from "../../../lib/chartSlice";
 import FormCreateChart from "./FormCreateChart";
 import {useEffect, useState} from "react";
 import {useTranslations} from "next-intl";
+import ChartDataLabels from "chartjs-plugin-datalabels";
 
 
-const LineChartCSRCpn = () => {
+const BarChartCSRCpn = () => {
     ChartJS.register(
         CategoryScale,
         LinearScale,
         PointElement,
+        BarElement,
         LineElement,
         Title,
         Tooltip,
@@ -50,11 +52,11 @@ const LineChartCSRCpn = () => {
                 <GridItem rowSpan={2} colSpan={3}>
                     <DowLoadChart/>
                     <Center style={{minHeight:300}}>
-                            <Line id="chart"
+                        <Bar id="chart"
                               style={{background: "#ffff",height:"100%"}}
                               options={chartState.options}
                               data={chartState}
-                              plugins={[chartPlugins]}
+                              plugins={[chartPlugins,ChartDataLabels]}
 
                         />
                     </Center>
@@ -68,4 +70,4 @@ const LineChartCSRCpn = () => {
         </>
     );
 }
-export default LineChartCSRCpn
+export default BarChartCSRCpn

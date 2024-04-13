@@ -26,6 +26,22 @@ const Toolbar = ({locale}) => {
                     {tChart('lineChart')}
                 </Button>
                 <Button
+                    margin={5}
+                    variant='outline'
+                    onClick={() => {
+                        router.replace(`/${locale}/bar`)
+                    }}
+                    display={{md: 'inline-flex'}}
+                    fontWeight={600}
+
+                    colorScheme='teal'
+                    href={'#'}
+                    _hover={{
+                        bg: '#319795',
+                    }}>
+                    {tChart('barChart')}
+                </Button>
+                <Button
                     variant='outline'
                     margin={5}
                     onClick={() => {

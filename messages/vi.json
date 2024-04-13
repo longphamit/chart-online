@@ -11,6 +11,7 @@
     "label": "Tên",
     "value": "Giá trị",
     "lineChart": "Biểu đồ đường",
+    "barChart": "Biểu đồ cột",
     "pieChart": "Biểu đồ tròn",
     "createChart": "Tạo biểu đồ",
     "addValue": "Thêm giá trị",

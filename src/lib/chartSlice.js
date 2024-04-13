@@ -56,10 +56,17 @@ const initialState = {
                 color: 'white',
                 font: {
                     weight: 'bold',
-                    size: 20
                 },
-                formatter: Math.round,
-                padding: 6
+                formatter: (value, context) => {
+                    const isPieChart = context.chart.config.type === 'pie' || context.chart.config.type === 'doughnut';
+                    if (isPieChart) {
+                        let percentage = (value / context.dataset.data.reduce((a, b) => a + b, 0)) * 100;
+                        return `${percentage.toFixed(1)}%`;
+                    } else {
+                        // For LineChart:
+                        return value;
+                    }
+                },
             },
         },
 

@@ -13,6 +13,7 @@
     "value": "Value",
     "lineChart": "Line Chart",
     "pieChart": "Pie Chart",
+    "barChart": "Bar Chart",
     "createChart": "Create Chart",
     "addValue": "Add value",
     "dowload": "Dowload"
