@@ -29,11 +29,15 @@ export default function RootLayout({children,params: {locale}}) {
         <html lang={locale}>
         <head>
             <link rel="canonical" href="https://tomchart.com"/>
+            <meta name="google-adsense-account" content="ca-pub-4503474209411306"/>
+            <script async
+                    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4503474209411306"
+                    crossOrigin="anonymous"></script>
         </head>
         <body className={inter.className}>
         <NextIntlClientProvider locale={locale} messages={messages}>
             <ChakraProvider>
-                <main>
+            <main>
                     <Navbar h={14} locale={locale}/>
                     <div style={{minHeight:"100vh"}}>
                         <Toolbar locale={locale}/>
