@@ -3,3 +3,4 @@ Allow: /
 Disallow: /private/
 
 Sitemap: https://tomchart.com/sitemap.xml
+Sitemap: https://vebieudo.online/sitemap.xml
